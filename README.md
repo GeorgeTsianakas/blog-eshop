@@ -1,4 +1,3 @@
-#node.js - Projects
 ## 1st Project Description - Parsing Requests & Sending Responses
 First node.js project in order to understand the basic core modules
 ### Project Description
