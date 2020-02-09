@@ -19,6 +19,10 @@ First node.js project in order to understand the basic core modules
 * Create app that serves two HTML files for "/" and "/users".
 * Add some static JS/CSS files to project that should be required for at least one of HTML files
 
-## e-shop Side Project (in progress)
+## e-shop Side Project (in progress) //TODO 😎
 ### Project Description
 An online shop implemented using Express.js Framework
+
+## blog Side Project (in progress) //TODO 😎
+### Project Description
+A blog implemented using Express.js Framework
