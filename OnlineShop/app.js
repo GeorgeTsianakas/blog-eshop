@@ -8,12 +8,11 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
-
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'mongodb+srv://maximilian:1fTl973JsCzkgzNf@cluster0-ntrwp.mongodb.net/shop';
+  '';
 
 const app = express();
 const store = new MongoDBStore({
@@ -74,7 +73,6 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
-  // throw new Error('Sync Dummy');
   if (!req.session.user) {
     return next();
   }
@@ -100,8 +98,6 @@ app.get('/500', errorController.get500);
 app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
-  // res.status(error.httpStatusCode).render(...);
-  // res.redirect('/500');
   res.status(500).render('500', {
     pageTitle: 'Error!',
     path: '/500',

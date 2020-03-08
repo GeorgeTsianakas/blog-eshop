@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
-
 import Layout from './components/Layout/Layout';
 import Backdrop from './components/Backdrop/Backdrop';
 import Toolbar from './components/Toolbar/Toolbar';
