@@ -165,15 +165,13 @@ exports.getCheckout = (req, res, next) => {
 };
 
 exports.postOrder = (req, res, next) => {
-  // Token is created using Checkout or Elements!
-  // Get the payment token ID submitted by the form:
-  const token = req.body.stripeToken; // Using Express
+  const token = req.body.stripeToken;
   let totalSum = 0;
 
   req.user
     .populate('cart.items.productId')
     .execPopulate()
-    .then(user => {  
+    .then(user => {
       user.cart.items.forEach(p => {
         totalSum += p.quantity * p.productId.price;
       });
@@ -259,31 +257,16 @@ exports.getInvoice = (req, res, next) => {
           .fontSize(14)
           .text(
             prod.product.title +
-              ' - ' +
-              prod.quantity +
-              ' x ' +
-              '$' +
-              prod.product.price
+            ' - ' +
+            prod.quantity +
+            ' x ' +
+            '$' +
+            prod.product.price
           );
       });
       pdfDoc.text('---');
       pdfDoc.fontSize(20).text('Total Price: $' + totalPrice);
-
       pdfDoc.end();
-      // fs.readFile(invoicePath, (err, data) => {
-      //   if (err) {
-      //     return next(err);
-      //   }
-      //   res.setHeader('Content-Type', 'application/pdf');
-      //   res.setHeader(
-      //     'Content-Disposition',
-      //     'inline; filename="' + invoiceName + '"'
-      //   );
-      //   res.send(data);
-      // });
-      // const file = fs.createReadStream(invoicePath);
-
-      // file.pipe(res);
     })
     .catch(err => next(err));
 };
