@@ -1,8 +1,9 @@
 import './Logo.css';
 
 const logo = props =>
-<
-h1
-className = "logo" > MessageNode < /h1>;
+    <
+        h1
+        className="logo">MessageNode
+        < /h1>;
 
-export default logo;
+            export default logo;

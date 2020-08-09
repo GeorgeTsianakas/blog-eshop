@@ -135,70 +135,71 @@ class FeedEdit extends Component {
 
     render() {
         return this.props.editing ? (
-            < Fragment >
-            < Backdrop onClick = {this.cancelPostChangeHandler}
-        />
-        < Modal
-        title = "New Post"
-        acceptEnabled = {this.state.formIsValid}
-        onCancelModal = {this.cancelPostChangeHandler}
-        onAcceptModal = {this.acceptPostChangeHandler}
-        isLoading = {this.props.loading}
-            >
-            < form >
-            < Input
-        id = "title"
-        label = "Title"
-        control = "input"
-        onChange = {this.postInputChangeHandler}
-        onBlur = {this.inputBlurHandler.bind(this, 'title')}
-        valid = {this.state.postForm['title'].valid}
-        touched = {this.state.postForm['title'].touched}
-        value = {this.state.postForm['title'].value}
-        />
-        < FilePicker
-        id = "image"
-        label = "Image"
-        control = "input"
-        onChange = {this.postInputChangeHandler}
-        onBlur = {this.inputBlurHandler.bind(this, 'image')}
-        valid = {this.state.postForm['image'].valid}
-        touched = {this.state.postForm['image'].touched}
-        />
-        < div
-        className = "new-post__preview-image" >
-            {
-        !this.state.imagePreview && < p > Please
-        choose
-        an
-        image. < /p>}
-        {
-            this.state.imagePreview && (
-            < Image
-            imageUrl = {this.state.imagePreview}
-            contain
-            left / >
-        )
-        }
-    <
-        /div>
-        < Input
-        id = "content"
-        label = "Content"
-        control = "textarea"
-        rows = "5"
-        onChange = {this.postInputChangeHandler}
-        onBlur = {this.inputBlurHandler.bind(this, 'content')}
-        valid = {this.state.postForm['content'].valid}
-        touched = {this.state.postForm['content'].touched}
-        value = {this.state.postForm['content'].value}
-        />
-        < /form>
-        < /Modal>
-        < /Fragment>
-    ) :
-        null;
-    }
-}
+            < Fragment>
+                < Backdrop onClick={this.cancelPostChangeHandler}
+                />
+                < Modal
+                    title="New Post"
+                    acceptEnabled={this.state.formIsValid}
+                    onCancelModal={this.cancelPostChangeHandler}
+                    onAcceptModal={this.acceptPostChangeHandler}
+                    isLoading={this.props.loading}
+                >
+                    < form>
+                        < Input
+                            id="title"
+                            label="Title"
+                            control="input"
+                            onChange={this.postInputChangeHandler}
+                            onBlur={this.inputBlurHandler.bind(this, 'title')}
+                            valid={this.state.postForm['title'].valid}
+                            touched={this.state.postForm['title'].touched}
+                            value={this.state.postForm['title'].value}
+                        />
+                        < FilePicker
+                            id="image"
+                            label="Image"
+                            control="input"
+                            onChange={this.postInputChangeHandler}
+                            onBlur={this.inputBlurHandler.bind(this, 'image')}
+                            valid={this.state.postForm['image'].valid}
+                            touched={this.state.postForm['image'].touched}
+                        />
+                        < div
+                            className="new-post__preview-image">
+                            {
+                                !this.state.imagePreview && < p>Please
+                                    choose
+                                    an
+                                    image.
+                                    < /p>}
+                                        {
+                                            this.state.imagePreview && (
+                                                < Image
+                                                    imageUrl={this.state.imagePreview}
+                                                    contain
+                                                    left / >
+                                            )
+                                            }
+                                            <
+                                            /div>
+                                            < Input
+                                            id = "content"
+                                            label = "Content"
+                                            control = "textarea"
+                                            rows = "5"
+                                            onChange = {this.postInputChangeHandler}
+                                            onBlur = {this.inputBlurHandler.bind(this, 'content')}
+                                            valid = {this.state.postForm['content'].valid}
+                                            touched = {this.state.postForm['content'].touched}
+                                            value = {this.state.postForm['content'].value}
+                                            />
+                                            < /form>
+                                            < /Modal>
+                                            < /Fragment>
+                                            ) :
+                                            null;
+                                            }
+                                            }
 
-export default FeedEdit;
+                                            export default FeedEdit;
